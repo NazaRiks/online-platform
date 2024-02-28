@@ -1,11 +1,6 @@
 .welcome-page-container {
-    /*padding: 20px;*/
     font-family: Arial, sans-serif;
 }
-
-
-
-
 
 .online-styding {
     font-size: 2rem;
@@ -34,20 +29,27 @@
 
 .university-item {
     width: 300px;
+    /*height: 300px; !* Set a fixed height for the university items *!*/
     margin: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .university-item img {
     width: 100%;
-    height: auto;
+    height: 100%; /* Make the image take the full height of the container */
+    object-fit: contain; /* Maintain aspect ratio */
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
 }
 
 .university-item h3 {
     margin: 10px 0;
+    font-size: 1.5rem;
 }
 
 .features {
@@ -75,15 +77,6 @@
     text-align: center;
 }
 
-.feature-item i {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.feature-item h3 {
-    margin: 10px 0;
-}
-
 .call-to-action {
     text-align: center;
     margin-bottom: 20px;
@@ -108,5 +101,4 @@
 .call-to-action button:hover {
     background-color: #357834;
 }
-
 

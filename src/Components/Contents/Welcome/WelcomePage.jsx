@@ -1,38 +1,43 @@
 import "./WelcomePage.css"
+import knu from "../../..//Pictures/gerb-removebg-preview.png"
+import course from "../../../Pictures/course.svg"
+import analysis from  "../../../Pictures/analysis.svg"
+import forum from  "../../../Pictures/forum.svg"
+import study from "../../../Pictures/study.svg"
 export default function WelcomePage() {
     const universities = [
         {
-            name: "Київський національний університет імені Тараса Шевченка",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kiev_University_logo.svg/1200px-Kiev_University_logo.svg.png",
+            name: "КНУ",
+            logo: knu,
         },
         {
-            name: "Львівський національний університет імені Івана Франка",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_of_Ivan_Franko_National_University_of_Lviv.svg/1200px-Logo_of_Ivan_Franko_National_University_of_Lviv.svg.png",
+            name: "НАУ",
+            logo: "https://pdp.nacs.gov.ua/system/providers/logos/000/000/128/original/Emblem_of_National_Aviation_University.png?1652096630"
         },
         {
-            name: "Національний технічний університет України «Київський політехнічний інститут імені Ігоря Сікорського»",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/KPI_logo.svg/1200px-KPI_logo.svg.png",
+            name: "КПІ",
+            logo: "https://kpi.ua/files/images-page/kpi-big-logo.png"
         },
     ];
 
     const features = [
         {
-            icon: "fa fa-comments",
+            icon: forum,
             title: "Форуми",
             description: "Спілкуйтеся з однодумцями та отримуйте допомогу в навчанні.",
         },
         {
-            icon: "fa fa-book",
+            icon: course,
             title: "Курси",
             description: "Проходьте онлайн-курси та отримуйте нові знання.",
         },
         {
-            icon: "fa fa-desktop",
+            icon: study,
             title: "Онлайн-навчання",
             description: "Навчайтеся в зручному для вас темпі та в будь-якому місці.",
         },
         {
-            icon: "fa fa-bar-chart",
+            icon: analysis,
             title: "Аналітика",
             description: "Слідкуйте за своїм прогресом та отримуйте персоналізовані рекомендації.",
         },
@@ -43,13 +48,17 @@ export default function WelcomePage() {
             <div className="online-styding">
                 <h1>Навчання онлайн</h1>
             </div>
+            <section className="call-to-action">
+                <h2>Розпочніть навчання вже зараз!</h2>
+                <button>Зареєструватися</button>
+            </section>
             <div className="main-content">
                 <section className="universities">
                     <h2>Наші партнери</h2>
                     <div className="universities-list">
                         {universities.map((university) => (
                             <div className="university-item" key={university.name}>
-                                <img src={university.logo} alt={university.name} />
+                                <img src={university.logo} alt={university.name}/>
                                 <h3>{university.name}</h3>
                             </div>
                         ))}
@@ -60,17 +69,14 @@ export default function WelcomePage() {
                     <div className="features-list">
                         {features.map((feature) => (
                             <div className="feature-item" key={feature.title}>
-                                <i className={feature.icon}></i>
+                                <img src={feature.icon} alt={feature.title}/>
                                 <h3>{feature.title}</h3>
                                 <p>{feature.description}</p>
                             </div>
                         ))}
                     </div>
                 </section>
-                <section className="call-to-action">
-                    <h2>Розпочніть навчання вже зараз!</h2>
-                    <button>Зареєструватися</button>
-                </section>
+
             </div>
         </div>
     );

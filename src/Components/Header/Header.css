@@ -1,4 +1,5 @@
 /* Header.css */
+
 .header-nav {
     display: flex;
     justify-content: space-between;
@@ -10,10 +11,12 @@
 
 .nav-buttons {
     display: flex;
+    align-items: center; /* Align items vertically in the nav-buttons */
 }
 
 .nav-button {
     flex: 1;
+    width: 150px; /* Set a fixed width for all buttons */
     margin-right: 10px;
     background-color: #45a049;
     border: none;
@@ -30,10 +33,31 @@
     background-color: #357834;
 }
 
+.logo-button {
+    background-color: transparent;
+    padding: 0;
+    display: flex; /* Use flexbox for the logo and text container */
+    align-items: center; /* Center items vertically in the logo-button */
+}
+
+.logo-img {
+    height: 80px; /* Adjust the height of the logo as needed */
+}
+
+.logo-text {
+    margin: 0;
+    color: #fff; /* Set the color of the logo text */
+    font-weight: bold; /* Optionally set font weight for better visibility */
+    margin-left: 8px; /* Adjust margin as needed for spacing between logo and text */
+}
+
 .user-button {
+    width: 150px; /* Set a fixed width for the user button */
     background-color: #45a049;
     border: none;
     padding: 15px;
+    display: flex; /* Use flexbox for the user button content */
+    align-items: center; /* Center items vertically in the user button */
     cursor: pointer;
     color: #fff;
     text-align: center;
@@ -41,27 +65,22 @@
     border-radius: 5px;
 }
 
-.user-button p {
-    margin: 0;
-}
-
-.user-button:hover {
-    background-color: #357834;
-}
-
-/* Additional Styles for Improved Appearance */
-
-.logo-button {
-    background-color: transparent;
-    padding: 0;
-}
-
-.logo-img {
-    height: 80px; /* Adjust the height of the logo as needed */
-}
-
 .user-img {
     margin-right: 8px;
 }
 
+.user-button p {
+    margin: 0;
+}
 
+.user-logo-text-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo {
+    margin-right: 2rem;
+}
+.user-logo-text-container p{
+    text-align: center;
+}

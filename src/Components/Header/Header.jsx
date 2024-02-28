@@ -8,14 +8,15 @@ import AuthorizationPage from "../Contents/Authorizations/AuthorizationPage.jsx"
 import WelcomePage from "../Contents/Welcome/WelcomePage.jsx";
 import './Header.css';
 import userLogo from "../../Pictures/user.svg";
-import anadaLogo from "../../Pictures/logomak_logo.png"
+import logo from "../../Pictures/logo.svg"
 
 export default function Header({ changeMainRenderedPage, isAuthorization, userName }) {
     return (
         <nav className="header-nav">
             <div className="nav-buttons">
                 <Button onClick={() => changeMainRenderedPage(<WelcomePage />)} className="nav-button logo-button">
-                    <img src={anadaLogo} alt="Anada Logo" className="logo-img" />
+                    <img src={logo} alt="Anada Logo" className="logo-img" />
+                    <p className="logo-text">Smart Learning</p>
                 </Button>
                 <Button onClick={() => changeMainRenderedPage(<MyEducationPage />)} className="nav-button">
                     Моя освіта
@@ -32,9 +33,10 @@ export default function Header({ changeMainRenderedPage, isAuthorization, userNa
             </div>
             <div>
                 <Button onClick={() => changeMainRenderedPage(<AuthorizationPage />)} className="user-button">
-                    <div>
-                        <img src={userLogo} alt="User" className="user-img" />
-                        {isAuthorization ? <p>{userName}</p> : <p>Увійти</p>}
+                    <div className="user-logo-text-container">
+                        <img src={userLogo} alt="User" className="user-logo" />
+                        <p className="autorization-text"> {isAuthorization ? <p>{userName}</p> : <p>Увійти</p>}</p>
+
                     </div>
                 </Button>
             </div>
