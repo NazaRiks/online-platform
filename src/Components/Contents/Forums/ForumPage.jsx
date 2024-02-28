@@ -11,6 +11,9 @@ export default function ForumPage({ changeMainRenderedPage }) {
     const subscribedForums = useRef(forumData.filter((forum) => forum.sub === true));
 
     const handleAddSubForum = (id) => {
+        forumData[0].sub=true
+        console.log(forumData[0].sub)
+        //TODO
         // Implement the logic for adding a sub forum
     };
 

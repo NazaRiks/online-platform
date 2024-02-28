@@ -24,7 +24,7 @@ export default function ForumObject({ sub, onAddSub, onCancelSub, author, descri
                 <h2>Актуальні топіки</h2>
                 {topics.map((item) => (
                     <div key={item.id}>
-                        <button>{item.title}</button>
+                        <button >{item.title}</button>
                     </div>
                 ))}
             </div>
