@@ -21,7 +21,7 @@ export default function Header({ changeMainRenderedPage, isAuthorization, userNa
                 <Button onClick={() => changeMainRenderedPage(<MyEducationPage />)} className="nav-button">
                     Моя освіта
                 </Button>
-                <Button onClick={() => changeMainRenderedPage(<CoursePage />)} className="nav-button">
+                <Button onClick={() => changeMainRenderedPage(<CoursePage changeMainRenderedPage={changeMainRenderedPage}/>)} className="nav-button">
                     Курси
                 </Button>
                 <Button onClick={() => changeMainRenderedPage(<MyStatisticsPage />)} className="nav-button">

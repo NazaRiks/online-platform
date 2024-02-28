@@ -57,8 +57,7 @@ export default function ForumPage({ changeMainRenderedPage }) {
             <div>
                 <img className="forum-logo" src={forumLogo} alt="Forum picture"/>
             </div>
-            <h2 className="forum-welcome-message">Приєднуйся до Великої родини, де ти знайдеш нові знайомства і завжди
-                актуальну інформацію. </h2>
+            <h2 className="forum-welcome-message">Приєднуйся до Великої родини, де ти знайдеш нові знайомства і завжди  актуальну інформацію. </h2>
             <div className="button-container">
                 <button>Почати спілкування</button>
                 <button>Продовжити спілкування</button>
@@ -71,8 +70,6 @@ export default function ForumPage({ changeMainRenderedPage }) {
                     <p>Ви ще не приєднались до жодного форуму.</p>
                 )}
             </div>
-            <h2>Бажаєте приєданитися до родини? </h2>
-            <h2>Обери відповідний форум, або скористайся налаштуванням фільтру</h2>
             <div>
                 <h2>Популярні теми для спілкування</h2>
                 <div className="filter-popular-section">
