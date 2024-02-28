@@ -1,13 +1,14 @@
 import React, { useRef, useState } from "react";
 import filterPicture from "../../../Pictures/107799.png";
 import courseData from "../../../Datas/courseData.js";
-
-
-export default function MyCorusePage({ changeMainRenderedPage }) {
-    const [selectedCourse, setSelectedCourse] = useState(null);
+import CourseObject from "./CourseObject.jsx";
+import CourseListIems from "./CourseListIems.jsx";
+import "./Styles/CoursePage.css"
+export default function MyCoursePage({ changeMainRenderedPage }) {
+    const [selectedCourse, setSelectedCourse] = useState('');
 
     const handleAddPayment = (id) => {
-        // Знаходимо індекс елемента масиву, який має вказаний id
+
         const index = courseData.findIndex((item) => item.id === id);
         if (index !== -1) {
             courseData[index].paid = true;
@@ -20,14 +21,26 @@ export default function MyCorusePage({ changeMainRenderedPage }) {
 
     const handleChoose = (id) => {
         const course = courseData.find((item) => item.id === id);
-        selectedCourse(course);
+        setSelectedCourse(course);
     };
-
+console.log(selectedCourse)
     if (selectedCourse)
-        changeMainRenderedPage(
-            <CourseObject>
 
-            </CourseObject>
+        changeMainRenderedPage(
+            <CourseObject
+                id={selectedCourse.id}
+                image={selectedCourse.image}
+                description={selectedCourse.description}
+                title={selectedCourse.title}
+                author={selectedCourse.author}
+                price = {selectedCourse.price}
+                userCourseCount={selectedCourse.userCourseCount}
+                mainDescription={selectedCourse.mainDescription}
+                lessons={selectedCourse.lessons}
+                countOfLessons={selectedCourse.countOfLessons}
+                onPayment={handleAddPayment}
+
+            />
         );
 
     return (
@@ -35,16 +48,16 @@ export default function MyCorusePage({ changeMainRenderedPage }) {
             <div>
                 <img className="course-logo" src="https://i0.wp.com/www.al-fanarmedia.org/wp-content/uploads/2019/04/online-3412473_1280.jpg?fit=1280%2C853&ssl=1" alt="Course picture"/>
             </div>
-            <h2 className="course-welcome-message">Приєднуйся до Великої родини, де ти знайдеш нові знайомства і завжди  актуальну інформацію. </h2>
+            <h2 className="course-welcome-message">Готовий до нових знань? Давай почнемо прямо зараз!</h2>
             <div>
                 <h2>Популярні теми для вивчння</h2>
                 <div className="filter-popular-section">
-                    <button>Освіта</button>
-                    <button>Абітурієнт</button>
-                    <button>Магістр</button>
-                    <button>Допомога</button>
-                    <button>Відпочинок</button>
-                    <button>Освіта</button>
+                    <button>Веб розробка</button>
+                    <button>Бек-енд розробка</button>
+                    <button>Дата аналітика</button>
+                    <button>QA Інженрія</button>
+                    <button>UI-UX Дизайн</button>
+                    <button>Бізнес аналітика</button>
                 </div>
             </div>
             <div className="filter-section">
@@ -56,8 +69,8 @@ export default function MyCorusePage({ changeMainRenderedPage }) {
                     <img className="filter-image" src={filterPicture} alt="Filter picture"/>
                 </div>
             </div>
-            <h2 className="actual-forum">Актуальні форуми</h2>
-            <ForumListItems forumData={courseData} onAction={handleChoose}/>
+            <h2 className="actual-course">Актуальні курси</h2>
+            <CourseListIems courseData={courseData} onAction={handleChoose}/>
         </div>
     );
 }

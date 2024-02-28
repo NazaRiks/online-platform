@@ -1,0 +1,156 @@
+
+
+.course-logo {
+    max-width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.course-welcome-message{
+    font-size: 2rem;
+    text-align: center;
+}
+.course-your-sub-mes{
+    margin-top: 2rem;
+}
+.button-container button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #45a049;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 2rem;
+    color:white;
+}
+
+
+.button-container button:hover {
+    background-color: #357834;
+}
+
+.course-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.subscriptions-container h2 {
+    margin-bottom: 10px;
+}
+
+/* Existing styles for filter section */
+.filter-popular-section {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.filter-popular-section h2 {
+    margin-bottom: 10px;
+}
+
+.filter-image {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.filter-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Additional styles for filter buttons */
+.filter-popular-section button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #45a049;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 8rem;
+    font-size: 1.2rem;
+    color:white
+}
+
+.filter-popular-section button:hover {
+    background-color: #357834;
+}
+.filter-section {
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-section {
+    margin-top: 5px;
+
+}
+
+.search-text {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.image-section {
+    margin-left: 10px; /* Додайте бажаний відступ від лівого краю */
+}
+
+.filter-image {
+    max-width: 100%; /* Зробіть, щоб картинка не виходила за межі контейнера */
+    height: auto; /* Забезпечте пропорціональне зменшення розміру */
+}
+.course-list {
+    /*border: 1px solid #ddd;*/
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-around;*/
+    text-align: center;
+}
+
+.course-item {
+    width: calc(33.33% - 20px); /* Adjust the width as needed */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.course-item-image img {
+    width: 100%;
+}
+
+.course-details {
+    padding: 10px;
+}
+
+.course-details h2 {
+    margin-bottom: 5px;
+}
+
+.course-button-check button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #45a049;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color:white;
+}
+
+.course-button-check button:hover {
+    background-color: #357834;
+}
+

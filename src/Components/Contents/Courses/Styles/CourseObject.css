@@ -1,0 +1,69 @@
+.course-object {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.actual-course{
+    text-align: center;
+}
+.course-object-details {
+    display: flex;
+    width: 100%;
+}
+
+.course-object-left-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.course-object-right-details {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.course-object-right-details img {
+    width: 100%;
+}
+
+.course-object-action {
+    margin-top: 10px;
+}
+.course-object-acion button{
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #45a049;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin: 5px;
+    font-size: 1.2rem;
+    color:white;
+
+}
+
+
+.course-object-lessons {
+    width: 100%;
+    padding: 20px;
+}
+
+.course-object-lessons button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #45a049;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin: 5px;
+    font-size: 1.2rem;
+    color:white;
+    width: 100%;
+}
+
+
+.course-object-lessons button:hover {
+    background-color: #357834;
+}
