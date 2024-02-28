@@ -11,14 +11,23 @@ export default function ForumPage({ changeMainRenderedPage }) {
     const subscribedForums = useRef(forumData.filter((forum) => forum.sub === true));
 
     const handleAddSubForum = (id) => {
-        forumData[0].sub=true
-        console.log(forumData[0].sub)
-        //TODO
-        // Implement the logic for adding a sub forum
+        // Знаходимо індекс елемента масиву, який має вказаний id
+        const index = forumData.findIndex((item) => item.id === id);
+        if (index !== -1) {
+            forumData[index].sub = true;
+            console.log(forumData[index].sub);
+        } else {
+            console.error(`Елемент з id ${id} не знайдено в масиві forumData`);
+        }
     };
-
     const handleCancelSubForum = (id) => {
-        // Implement the logic for canceling a sub forum
+        const index = forumData.findIndex((item) => item.id === id);
+        if (index !== -1) {
+            forumData[index].sub = false;
+            console.log(forumData[index].sub);
+        } else {
+            console.error(`Елемент з id ${id} не знайдено в масиві forumData`);
+        }
     };
 
     const handleChoose = (id) => {

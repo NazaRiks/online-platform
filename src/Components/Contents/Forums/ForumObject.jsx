@@ -1,6 +1,16 @@
-import React from "react";
-import "./Styles/ForumObject.css"
-export default function ForumObject({ sub, onAddSub, onCancelSub, author, description, mainDescription, title, image, id, userForumCount, topics }) {
+import React, { useState } from "react";
+import "./Styles/ForumObject.css";
+import forumData from "../../../Datas/forumData.js";
+
+export default function ForumObject({onAddSub, onCancelSub, author, description, mainDescription, title, image, id, userForumCount, topics }) {
+    const sub = forumData[id].sub
+    const [actionSub, setActionSub] = useState(sub ? "Відписатися" : "Підписатися");
+
+    const handleActionButtonClick = () => {
+        setActionSub(sub ? "Підписатися" : "Відписатися");
+        sub ? onCancelSub(id) : onAddSub(id);
+    };
+
     return (
         <div className="forum-object">
             <div className="forum-object-left-details">
@@ -13,18 +23,14 @@ export default function ForumObject({ sub, onAddSub, onCancelSub, author, descri
                 <p>{description}</p>
                 <p>Кількість учасників: {userForumCount}</p>
                 <div className="forum-object-acion">
-                    {sub ? (
-                        <button onClick={() => onCancelSub(id)}>Відписатися</button>
-                    ) : (
-                        <button onClick={() => onAddSub(id)}>Підписатися</button>
-                    )}
+                    <button onClick={handleActionButtonClick}>{actionSub}</button>
                 </div>
             </div>
             <div className="forum-object-topics">
                 <h2>Актуальні топіки</h2>
                 {topics.map((item) => (
                     <div key={item.id}>
-                        <button >{item.title}</button>
+                        <button>{item.title}</button>
                     </div>
                 ))}
             </div>

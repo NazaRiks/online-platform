@@ -1,7 +1,7 @@
 import  NAU from "../Pictures/Emblem_of_National_Aviation_University.png"
  const forumData = [
     {
-        id:1,
+        id:0,
         sub:false,
         title:"НАУ - сьогоодні ,вчора і завтра",
         description:"Обговорюємо всі новини НАУ",
