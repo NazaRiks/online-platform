@@ -1,6 +1,6 @@
 import React from "react";
 import "./Styles/CourseItem.css"
-export default function CourseItem({ onAction,countOfLessons, author, price, userCourseCount,description, title, image, id }) {
+export default function CourseItem({ paid,onAction,countOfLessons, author, price, userCourseCount,description, title, image, id }) {
     return (
         <div className="course-item">
             <div className="course-item-image">
@@ -16,7 +16,7 @@ export default function CourseItem({ onAction,countOfLessons, author, price, use
             </div>
             <div className="course-button-check">
                 <button onClick={() => onAction(id)}>
-                    <p>Переглянути</p>
+                    {paid ? <p> Продовжити навчання</p>: <p>Переглянути</p>}
                 </button>
             </div>
         </div>

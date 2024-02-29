@@ -18,7 +18,7 @@ export default function Header({ changeMainRenderedPage, isAuthorization, userNa
                     <img src={logo} alt="Anada Logo" className="logo-img" />
                     <p className="logo-text">Smart Learning</p>
                 </Button>
-                <Button onClick={() => changeMainRenderedPage(<MyEducationPage />)} className="nav-button">
+                <Button onClick={() => changeMainRenderedPage(<MyEducationPage changeMainRenderedPage={changeMainRenderedPage}/>)} className="nav-button">
                     Моя освіта
                 </Button>
                 <Button onClick={() => changeMainRenderedPage(<CoursePage changeMainRenderedPage={changeMainRenderedPage}/>)} className="nav-button">

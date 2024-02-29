@@ -18,6 +18,7 @@ export  default function CourseListItems({ courseData, onAction }) {
                         title={item.title}
                         image={item.image}
                         id={item.id}
+                        paid={item.paid}
                     />
                 ))}
             </div>

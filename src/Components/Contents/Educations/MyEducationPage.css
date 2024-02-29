@@ -1,0 +1,96 @@
+.my-education-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background-color: #f4f4f4; /* Додайте фон для покращення видимості */
+}
+
+.schedule-section,
+.classes-section {
+    width: 100%;
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.shedule-item {
+    width: 100%;
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /*background-color: #fff; !* Додайте фон для кожного елемента курсу *!*/
+}
+
+.shedule-item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Додайте тінь при наведенні для ефекту підсвічування */
+}
+
+
+.shedule-details {
+    width: 70%;
+    padding: 10px;
+}
+
+.shedule-details h2 {
+    margin-bottom: 5px;
+}
+
+.classes-button-check button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #45a049;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: white;
+}
+
+.classes-item{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+.classes-button-check button:hover {
+    background-color: #357834;
+}
+
+.tasks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Додайте стиль для tasks-list li */
+.tasks-list li {
+    margin-bottom: 5px;
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+
+/* Додайте стиль для task-title */
+.task-title {
+    font-weight: bold;
+    margin-right: 10px; /* Додайте відступ справа */
+    margin-left: 10px;
+}
+
+/* Додайте стиль для task-deadline */
+.task-deadline {
+    color: #ccc;
+    font-style: italic;
+    margin-left: 10px; /* Додайте відступ зліва */
+}
