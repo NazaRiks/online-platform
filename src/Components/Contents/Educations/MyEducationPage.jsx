@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./MyEducationPage.css"
-import CourseListIems from "../Courses/CourseListIems.jsx";
+import CourseListIems from "../Courses/CourseListItems.jsx";
 import courseData from "../../../Datas/courseData.js";
 import CourseObject from "../Courses/CourseObject.jsx";
 export default function MyEducationPage({changeMainRenderedPage}) {

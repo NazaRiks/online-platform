@@ -1,21 +1,22 @@
 // App.jsx
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Header from "./Components/Header/Header.jsx";
 import './App.css';
 import WelcomePage from "./Components/Contents/Welcome/WelcomePage.jsx";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import AuthorizationPage from "./Components/Contents/Authorizations/AuthorizationPage.jsx";
 
 
 export default function App() {
-    const [mainPage, setMainPage] = useState(<WelcomePage />);
-    const changeMainRenderedPageHandler = (componetPage) => {
-        setMainPage(componetPage);
-    }
-
-
     return (
         <div className="app-container">
-            <Header changeMainRenderedPage={changeMainRenderedPageHandler}/>
-            {mainPage}
+            <BrowserRouter>
+                <Header />
+                <Routes>
+                    <Route exact path="/" element={<WelcomePage/>}/>
+                    <Route path="/auth" element={<AuthorizationPage/>}/>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

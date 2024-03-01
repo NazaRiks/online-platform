@@ -4,6 +4,7 @@ import course from "../../../Pictures/course.svg"
 import analysis from  "../../../Pictures/analysis.svg"
 import forum from  "../../../Pictures/forum.svg"
 import study from "../../../Pictures/study.svg"
+import {Outlet} from "react-router-dom";
 export default function WelcomePage() {
     const universities = [
         {
@@ -78,6 +79,7 @@ export default function WelcomePage() {
                 </section>
 
             </div>
+
         </div>
     );
 }

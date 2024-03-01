@@ -1,3 +1,5 @@
 export default  function  AuthorizationPage () {
-    return <p>Authorization</p>
+    return (
+        <form action=""></form>
+    )
 }

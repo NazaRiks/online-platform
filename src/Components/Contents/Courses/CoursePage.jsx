@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import filterPicture from "../../../Pictures/107799.png";
 import courseData from "../../../Datas/courseData.js";
 import CourseObject from "./CourseObject.jsx";
-import CourseListIems from "./CourseListIems.jsx";
+import CourseListItems from "./CourseListItems.jsx";
 import "./Styles/CoursePage.css"
 export default function MyCoursePage({ changeMainRenderedPage }) {
     const [selectedCourse, setSelectedCourse] = useState('');
@@ -70,7 +70,7 @@ console.log(selectedCourse)
                 </div>
             </div>
             <h2 className="actual-course">Актуальні курси</h2>
-            <CourseListIems courseData={courseData} onAction={handleChoose}/>
+            <CourseListItems courseData={courseData} onAction={handleChoose}/>
         </div>
     );
 }
