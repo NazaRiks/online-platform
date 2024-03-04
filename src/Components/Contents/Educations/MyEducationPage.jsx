@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./MyEducationPage.css"
 import CourseListIems from "../Courses/CourseListItems.jsx";
-import courseData from "../../../Datas/courseData.js";
+import courseData from "../../../Data\'s/courseData.js";
 import CourseObject from "../Courses/CourseObject.jsx";
 export default function MyEducationPage({changeMainRenderedPage}) {
     const [selectedDate, setSelectedDate] = useState(new Date('2024-02-29'));

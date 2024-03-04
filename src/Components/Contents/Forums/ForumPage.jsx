@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import forumData from "../../../Datas/forumData.js";
+import forumData from "../../../Data's/forumData.js";
 import forumLogo from "../../../Pictures/c847840-online-kursi1320.jpg";
 import filterPicture from "../../../Pictures/107799.png";
 import ForumListItems from "./ForumListItems.jsx";

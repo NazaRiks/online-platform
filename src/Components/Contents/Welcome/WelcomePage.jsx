@@ -1,49 +1,21 @@
 import "./WelcomePage.css"
-import knu from "../../..//Pictures/gerb-removebg-preview.png"
-import course from "../../../Pictures/course.svg"
-import analysis from  "../../../Pictures/analysis.svg"
-import forum from  "../../../Pictures/forum.svg"
-import study from "../../../Pictures/study.svg"
-import {Outlet} from "react-router-dom";
+import {useEffect, useState} from "react";
+
 export default function WelcomePage() {
-    const universities = [
-        {
-            name: "КНУ",
-            logo: knu,
-        },
-        {
-            name: "НАУ",
-            logo: "https://pdp.nacs.gov.ua/system/providers/logos/000/000/128/original/Emblem_of_National_Aviation_University.png?1652096630"
-        },
-        {
-            name: "КПІ",
-            logo: "https://kpi.ua/files/images-page/kpi-big-logo.png"
-        },
-    ];
-
-    const features = [
-        {
-            icon: forum,
-            title: "Форуми",
-            description: "Спілкуйтеся з однодумцями та отримуйте допомогу в навчанні.",
-        },
-        {
-            icon: course,
-            title: "Курси",
-            description: "Проходьте онлайн-курси та отримуйте нові знання.",
-        },
-        {
-            icon: study,
-            title: "Онлайн-навчання",
-            description: "Навчайтеся в зручному для вас темпі та в будь-якому місці.",
-        },
-        {
-            icon: analysis,
-            title: "Аналітика",
-            description: "Слідкуйте за своїм прогресом та отримуйте персоналізовані рекомендації.",
-        },
-    ];
-
+    const [universities, setUniversities] = useState([]);
+    const [features, setFeatures] = useState([]);
+    useEffect(() => {
+        fetch("src/Data's/features.json")
+            .then(response => response.json())
+            .then(data => setFeatures(data))
+            .catch(error => console.error('Error fetching data:', error));
+    }, []);
+    useEffect(() => {
+        fetch("src/Data's/universities.json")
+            .then(response => response.json())
+            .then(data => setUniversities(data))
+            .catch(error => console.error('Error fetching data:', error));
+    }, []);
     return (
         <div className="welcome-page-container">
             <div className="online-styding">
@@ -57,8 +29,8 @@ export default function WelcomePage() {
                 <section className="universities">
                     <h2>Наші партнери</h2>
                     <div className="universities-list">
-                        {universities.map((university) => (
-                            <div className="university-item" key={university.name}>
+                        {universities.map((university, index) => (
+                            <div className="university-item" key={index}>
                                 <img src={university.logo} alt={university.name}/>
                                 <h3>{university.name}</h3>
                             </div>
@@ -68,8 +40,8 @@ export default function WelcomePage() {
                 <section className="features">
                     <h2>Можливості платформи</h2>
                     <div className="features-list">
-                        {features.map((feature) => (
-                            <div className="feature-item" key={feature.title}>
+                        {features.map((feature, index) => (
+                            <div className="feature-item" key={index}>
                                 <img src={feature.icon} alt={feature.title}/>
                                 <h3>{feature.title}</h3>
                                 <p>{feature.description}</p>

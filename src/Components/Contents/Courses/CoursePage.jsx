@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import filterPicture from "../../../Pictures/107799.png";
-import courseData from "../../../Datas/courseData.js";
+import courseData from "../../../Data\'s/courseData.js";
 import CourseObject from "./CourseObject.jsx";
 import CourseListItems from "./CourseListItems.jsx";
 import "./Styles/CoursePage.css"

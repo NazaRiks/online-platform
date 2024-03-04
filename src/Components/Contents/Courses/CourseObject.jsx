@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Styles/CourseObject.css";
-import courseData from "../../../Datas/courseData.js";
+import courseData from "../../../Data\'s/courseData.js";
 
 
 export default function CourseObject({onPayment,countOfLessons, author, price, userCourseCount,description, mainDescription, title, image, id, lessons }) {
