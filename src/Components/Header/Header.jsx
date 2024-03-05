@@ -1,11 +1,5 @@
 import React from 'react';
 import Button from "../Button/Button.jsx";
-import MyEducationPage from "../Contents/Educations/MyEducationPage.jsx";
-import CoursePage from "../Contents/Courses/CoursePage.jsx";
-import MyStatisticsPage from "../Contents/Statistics/MyStatisticPage.jsx";
-import ForumPage from "../Contents/Forums/ForumPage.jsx";
-import AuthorizationPage from "../Contents/Authorizations/AuthorizationPage.jsx";
-import WelcomePage from "../Contents/Welcome/WelcomePage.jsx";
 import './Header.css';
 import userLogo from "../../Pictures/user.svg";
 import logo from "../../Pictures/logo.svg"

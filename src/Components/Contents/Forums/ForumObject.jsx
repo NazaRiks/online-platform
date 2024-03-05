@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Styles/ForumObject.css";
-import forumData from "../../../Data\'s/forumData.js";
+import forumData from "../../../Data's/forumData.js";
 
 export default function ForumObject({onAddSub, onCancelSub, author, description, mainDescription, title, image, id, userForumCount, topics }) {
     const sub = forumData[id].sub
