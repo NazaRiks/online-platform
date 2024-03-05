@@ -1,3 +1,8 @@
 export  default  function MyStatisticsPage (){
-    return <p>statistics</p>
+    return (
+        <div>
+            <h1>Моя статистика</h1>
+
+        </div>
+    )
 }
