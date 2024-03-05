@@ -1,0 +1,25 @@
+.statistics-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.stats-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: calc(25% - 20px); /* Adjust width as needed */
+}
+
+.stats-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.stats-card p {
+    font-size: 1.5rem;
+}
