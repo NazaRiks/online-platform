@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from "../Button/Button.jsx";
 import './Header.css';
 import userLogo from "../../Pictures/user.svg";
 import logo from "../../Pictures/logo.svg"
 import { Link } from 'react-router-dom';
-export default function Header({isAuthorization, userName }) {
+import axios from "axios";
+export default function Header() {
+    const [username, setUsername] = useState(null);
+    useEffect(() => {
+        if(localStorage.getItem("token") === null) return setUsername(null);
+        axios.get("http://localhost:8080/auth/getUsername", {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then(response => {
+            setUsername(response.data);
+        }).catch(error => console.error('Error fetching data:', error)
+        );
+    });
+
     return (
         <nav className="header-nav">
             <div className="nav-buttons">
@@ -29,7 +43,7 @@ export default function Header({isAuthorization, userName }) {
                 <Link to="/auth"><Button className="user-button">
                     <div className="user-logo-text-container">
                         <img src={userLogo} alt="User" className="user-logo" />
-                        <p className="autorization-text"> {isAuthorization ? <p>{userName}</p> : <p>Увійти</p>}</p>
+                        <p className="autorization-text"> {<p>{username}</p>}</p>
                     </div>
                 </Button></Link>
             </div>
