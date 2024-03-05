@@ -17,7 +17,8 @@ export default function AuthorizationPage() {
         setUser({...user, password: event.target.value});
     }
 
-    function handleLogin() {
+    function handleLogin(event) {
+        event.preventDefault();
         axios.post("http://localhost:8080/auth/login", user)
             .then(response => localStorage.setItem("token", response.data.token))
             .catch(error => console.error('Error fetching data:', error));
