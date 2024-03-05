@@ -12,12 +12,14 @@ import CoursePage from "./Components/Contents/Courses/CoursePage.jsx";
 import RegisterPage from "./Components/Contents/register/register-page.jsx";
 import axios from "axios";
 import ProtectedRoute from "./Components/Defence/ProtectedRoute.jsx";
+import CourseObject from "./Components/Contents/Courses/CourseObject.jsx";
+import ForumObject from "./Components/Contents/Forums/ForumObject.jsx";
 
 
 export default function App() {
     const [isTokenValid, setIsTokenValid] = useState(false);
     const [userName, setUserName] = useState("Увiйти");
-    axios.get("http://localhost:8080/auth/isTokenValid", {
+    axios.get("http://localhost:5173/auth/isTokenValid", {
         headers: {
             "Authorization": `Bearer ${localStorage.getItem("token")}`
         }
@@ -25,7 +27,7 @@ export default function App() {
         setIsTokenValid(response.data);
     }).catch(error => console.error('Error fetching data:', error)
     );
-    axios.get("http://localhost:8080/auth/getUsername", {
+    axios.get("http://localhost:5173/auth/getUsername", {
         headers: {
             "Authorization": `Bearer ${localStorage.getItem("token")}`
         }
@@ -47,6 +49,8 @@ export default function App() {
                     <Route path="/statistic" element={<ProtectedRoute isTokenValid={isTokenValid} component={MyStatisticsPage} />} />
                     <Route path="/forums" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumPage} />} />
                     <Route path="/register" element={<ProtectedRoute isTokenValid={isTokenValid} component={RegisterPage} />} />
+                    <Route path="/courses/course-object" element={<ProtectedRoute isTokenValid={isTokenValid} component={CourseObject} />}/>
+                    <Route path="/forums/forum-object" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumObject} />}/>
                 </Routes>
             </BrowserRouter>
         </div>
