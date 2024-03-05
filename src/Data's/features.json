@@ -1,21 +1,22 @@
+
 [
   {
-    "icon": "forum",
+    "icon": "src/Pictures/forum.svg",
     "title": "Форуми",
     "description": "Спілкуйтеся з однодумцями та отримуйте допомогу в навчанні."
   },
   {
-    "icon": "course",
+    "icon": "src/Pictures/course.svg",
     "title": "Курси",
     "description": "Проходьте онлайн-курси та отримуйте нові знання."
   },
   {
-    "icon": "study",
+    "icon": "src/Pictures/study.svg",
     "title": "Онлайн-навчання",
     "description": "Навчайтеся в зручному для вас темпі та в будь-якому місці."
   },
   {
-    "icon": "analysis",
+    "icon": "src/Pictures/analysis.svg",
     "title": "Аналітика",
     "description": "Слідкуйте за своїм прогресом та отримуйте персоналізовані рекомендації."
   }

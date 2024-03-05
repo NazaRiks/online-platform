@@ -27,7 +27,7 @@ export default function App() {
             setIsTokenValid(response.data);
         }).catch(error => console.error('Error fetching data:', error)
         );
-    });
+    }, []);
 
 
 

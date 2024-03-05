@@ -1,56 +1,33 @@
-import React, { useRef, useState } from "react";
 import forumData from "../../../Data's/forumData.js";
 import forumLogo from "../../../Pictures/c847840-online-kursi1320.jpg";
 import filterPicture from "../../../Pictures/107799.png";
 import ForumListItems from "./ForumListItems.jsx";
-import ForumObject from "./ForumObject.jsx";
+import { useNavigate } from 'react-router-dom';
 import "./Styles/ForumPage.css"
 
-export default function ForumPage({ changeMainRenderedPage }) {
-    const [selectedForum, setSelectedForum] = useState(null);
-    const subscribedForums = useRef(forumData.filter((forum) => forum.sub === true));
 
-    const handleAddSubForum = (id) => {
-        // Знаходимо індекс елемента масиву, який має вказаний id
-        const index = forumData.findIndex((item) => item.id === id);
-        if (index !== -1) {
-            forumData[index].sub = true;
-            console.log(forumData[index].sub);
-        } else {
-            console.error(`Елемент з id ${id} не знайдено в масиві forumData`);
-        }
-    };
-    const handleCancelSubForum = (id) => {
-        const index = forumData.findIndex((item) => item.id === id);
-        if (index !== -1) {
-            forumData[index].sub = false;
-            console.log(forumData[index].sub);
-        } else {
-            console.error(`Елемент з id ${id} не знайдено в масиві forumData`);
-        }
-    };
+export default function ForumPage() {
+    const navigate = useNavigate();
+    const subscribedForums =forumData.filter((forum) => forum.sub === true);
 
     const handleChoose = (id) => {
         const forum = forumData.find((item) => item.id === id);
-        setSelectedForum(forum);
+        const queryParams = {
+            sub: forum.sub,
+            author: forum.author,
+            description: forum.description,
+            mainDescription: forum.mainDescription,
+            title: forum.title,
+            image: forum.image,
+            id: forum.id,
+            topics: forum.topics,
+            userForumCount: forum.userForumCount
+        };
+        navigate("/forums/forum-object", {
+            state: queryParams,
+        });
     };
 
-    if (selectedForum)
-        changeMainRenderedPage(
-            <ForumObject
-                sub={selectedForum.sub}
-                onAddSub={handleAddSubForum}
-                onCancelSub={handleCancelSubForum}
-                author={selectedForum.author}
-                description={selectedForum.description}
-                mainDescription={selectedForum.mainDescription}
-                title={selectedForum.title}
-                image={selectedForum.image}
-                id={selectedForum.id}
-                topics={selectedForum.topics}
-                userForumCount={selectedForum.userForumCount}
-            />
-        );
 
     return (
         <div className="forum-page-container">
@@ -64,8 +41,8 @@ export default function ForumPage({ changeMainRenderedPage }) {
             </div>
             <h2 className="forum-your-sub-mes">Мої підписки</h2>
             <div>
-                {subscribedForums.current.length !== 0 ? (
-                    <ForumListItems forumData={subscribedForums.current} onAction={handleChoose}/>
+                {subscribedForums.length !== 0 ? (
+                    <ForumListItems forumData={subscribedForums} onAction={handleChoose}/>
                 ) : (
                     <p>Ви ще не приєднались до жодного форуму.</p>
                 )}

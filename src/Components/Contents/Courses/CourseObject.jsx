@@ -1,15 +1,26 @@
 import React, { useState } from "react";
 import "./Styles/CourseObject.css";
-import courseData from "../../../Data\'s/courseData.js";
-
-
-export default function CourseObject({onPayment,countOfLessons, author, price, userCourseCount,description, mainDescription, title, image, id, lessons }) {
+import courseData from "../../../Data's/courseData.js";
+import { useLocation } from 'react-router-dom';
+export default function CourseObject() {
+    const location = useLocation();
+    const { id, countOfLessons, author, price, userCourseCount, description, mainDescription, title, image, lessons } = location.state;
     const paid = courseData[id].paid;
     const [alreadyPaid, setAlreadyPaid] = useState(paid ? "Ви вже придаби даний курс" : "Придбати");
+    const AddPayment = (id) => {
+
+        const index = courseData.findIndex((item) => item.id === id);
+        if (index !== -1) {
+            courseData[index].paid = true;
+            console.log(courseData[index].sub);
+        } else {
+            console.error("Елемент з id ${id} не знайдено в масиві courseData");
+        }
+    };
 
     const handleActionButtonClick = () => {
+        AddPayment(id);
         setAlreadyPaid("Ви вже придбали даний курс");
-        onPayment(id);
     };
     const lessonsContent = paid ? <div className="course-object-lessons">
         <h2>Почни навчання прямо зараз! </h2>

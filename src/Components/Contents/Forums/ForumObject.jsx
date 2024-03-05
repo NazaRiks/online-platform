@@ -1,14 +1,36 @@
 import React, { useState } from "react";
 import "./Styles/ForumObject.css";
 import forumData from "../../../Data's/forumData.js";
+import { useLocation } from 'react-router-dom';
 
-export default function ForumObject({onAddSub, onCancelSub, author, description, mainDescription, title, image, id, userForumCount, topics }) {
+export default function ForumObject() {
+    const location = useLocation();
+    const { author, description, mainDescription, title, image, id, userForumCount, topics } = location.state;
     const sub = forumData[id].sub
     const [actionSub, setActionSub] = useState(sub ? "Відписатися" : "Підписатися");
+    const addSubForum = (id) => {
+        // Знаходимо індекс елемента масиву, який має вказаний id
+        const index = forumData.findIndex((item) => item.id === id);
+        if (index !== -1) {
+            forumData[index].sub = true;
+            console.log(forumData[index].sub);
+        } else {
+            console.error(`Елемент з id ${id} не знайдено в масиві forumData`);
+        }
+    };
+    const cancelSubForum = (id) => {
+        const index = forumData.findIndex((item) => item.id === id);
+        if (index !== -1) {
+            forumData[index].sub = false;
+            console.log(forumData[index].sub);
+        } else {
+            console.error(`Елемент з id ${id} не знайдено в масиві forumData`);
+        }
+    };
 
     const handleActionButtonClick = () => {
         setActionSub(sub ? "Підписатися" : "Відписатися");
-        sub ? onCancelSub(id) : onAddSub(id);
+        sub ? cancelSubForum(id) : addSubForum(id);
     };
 
     return (
