@@ -60,7 +60,7 @@ export default function App() {
                     <Route path="/forums" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumPage} />} />
                     <Route path="/forums/forum-object" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumObject} />} />
                     <Route path="/admin" element={<ProtectedRoute isTokenValid={isAdmin && isTokenValid} component={AdminMenu} />} />
-                    <Route path="/register" element={<ProtectedRoute isTokenValid={isAdmin && isTokenValid} component={RegisterPage} />} />
+                    <Route path="/register" element={isTokenValid ? <Navigate to="/" /> : <RegisterPage />} />
                 </Routes>
             </BrowserRouter>
         </div>
