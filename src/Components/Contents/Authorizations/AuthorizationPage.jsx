@@ -21,7 +21,10 @@ export default function AuthorizationPage() {
         event.preventDefault();
         axios.post("http://localhost:8080/auth/login", user)
             .then(response => localStorage.setItem("token", response.data.token))
+            .then(() => window.location.reload())
             .catch(error => console.error('Error fetching data:', error));
+
+
     }
 
     return (

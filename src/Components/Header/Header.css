@@ -63,6 +63,7 @@
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
+    position: relative;
 }
 
 .user-img {
@@ -83,4 +84,28 @@
 }
 .user-logo-text-container p{
     text-align: center;
+}
+.popup{
+    display: none;
+    position: absolute;
+    background-color: #4CAF50;
+    width: 150px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 49px;
+    left: 0;
+}
+.popup button{
+    background-color: #45a049;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+.user-button:hover .popup{
+    display: block;
 }
