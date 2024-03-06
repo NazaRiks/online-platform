@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`forum list items 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`forum object 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`forum page 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`forum-item 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`matches snapshot 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;

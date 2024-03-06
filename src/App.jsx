@@ -12,6 +12,8 @@ import CoursePage from "./Components/Contents/Courses/CoursePage.jsx";
 import RegisterPage from "./Components/Contents/register/register-page.jsx";
 import axios from "axios";
 import ProtectedRoute from "./Components/Defence/ProtectedRoute.jsx";
+import ForumObject from "./Components/Contents/Forums/ForumObject.jsx";
+import CourseObject from "./Components/Contents/Courses/CourseObject.jsx";
 
 
 export default function App() {
@@ -42,6 +44,8 @@ export default function App() {
                     <Route path="/courses" element={<ProtectedRoute isTokenValid={isTokenValid} component={CoursePage} />} />
                     <Route path="/statistic" element={<ProtectedRoute isTokenValid={isTokenValid} component={MyStatisticsPage} />} />
                     <Route path="/forums" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumPage} />} />
+                    <Route path="/forums/forum-object" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumObject} />} />
+                    <Route path="/courses/course-object" element={<ProtectedRoute isTokenValid={isTokenValid} component={CourseObject} />} />
                     <Route path="/register" element={<RegisterPage />} />
                 </Routes>
             </BrowserRouter>
