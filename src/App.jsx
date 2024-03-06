@@ -1,5 +1,5 @@
 // App.jsx
-import {useEffect, useState} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import Header from "./Components/Header/Header.jsx";
 import './App.css';
 import WelcomePage from "./Components/Contents/Welcome/WelcomePage.jsx";
@@ -12,12 +12,11 @@ import CoursePage from "./Components/Contents/Courses/CoursePage.jsx";
 import RegisterPage from "./Components/Contents/register/register-page.jsx";
 import axios from "axios";
 import ProtectedRoute from "./Components/Defence/ProtectedRoute.jsx";
-import AdminMenu from "./Components/Contents/admin-menu/admin-menu.jsx";
 
 
 export default function App() {
     const [isTokenValid, setIsTokenValid] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
+
     useEffect(() => {
         if(localStorage.getItem("token") === null) return setIsTokenValid(false);
         axios.get("http://localhost:8080/auth/isTokenValid", {
@@ -30,24 +29,12 @@ export default function App() {
         );
     }, []);
 
-    useEffect(() => {
-        if(localStorage.getItem("token") === null) return setIsAdmin(false);
-        axios.get("http://localhost:8080/auth/isAdmin", {
-            headers: {
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
-            }
-        }).then(response => {
-            console.log(response.data);
-            setIsAdmin(response.data);
-        }).catch(error => console.error('Error fetching data:', error)
-        )
-    },[]);
 
 
     return (
         <div className="app-container">
             <BrowserRouter>
-                {isTokenValid && <Header isAdmin={isAdmin} />}
+                {isTokenValid && <Header />}
                 <Routes>
                     <Route path="/auth" element={isTokenValid ? <Navigate to="/" /> : <AuthorizationPage />} />
                     <Route path="/" element={<ProtectedRoute isTokenValid={isTokenValid} component={WelcomePage} />} />
@@ -55,8 +42,7 @@ export default function App() {
                     <Route path="/courses" element={<ProtectedRoute isTokenValid={isTokenValid} component={CoursePage} />} />
                     <Route path="/statistic" element={<ProtectedRoute isTokenValid={isTokenValid} component={MyStatisticsPage} />} />
                     <Route path="/forums" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumPage} />} />
-                    <Route path="/admin" element={<ProtectedRoute isTokenValid={isTokenValid && isAdmin} component={AdminMenu} />} />
-                    <Route path="/register" element={isTokenValid ? <Navigate to="/" /> : <RegisterPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
                 </Routes>
             </BrowserRouter>
         </div>

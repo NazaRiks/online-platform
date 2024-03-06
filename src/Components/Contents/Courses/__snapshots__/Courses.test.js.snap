@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`courses test page > course list items 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`courses test page > course page 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`courses test page > course-item 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`courses test page > couse object 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`forum page > forum list items 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`forum page > forum object 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`forum page > forum page 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
+
+exports[`forum page > forum-item 1`] = `
+{
+  "foo": Any<Set>,
+}
+`;
