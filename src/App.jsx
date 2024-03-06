@@ -16,7 +16,7 @@ import ProtectedRoute from "./Components/Defence/ProtectedRoute.jsx";
 
 export default function App() {
     const [isTokenValid, setIsTokenValid] = useState(false);
-
+    const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() => {
         if(localStorage.getItem("token") === null) return setIsTokenValid(false);
         axios.get("http://localhost:8080/auth/isTokenValid", {
@@ -28,6 +28,17 @@ export default function App() {
         }).catch(error => console.error('Error fetching data:', error)
         );
     }, []);
+
+    useEffect(() => {
+        if(localStorage.getItem("token") === null) return setIsAdmin(false);
+        axios.get("http://localhost:8080/auth/isAdmin", {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then(response => {
+            setIsAdmin(response.data);
+        }).catch(error => console.error('Error fetching data:', error));
+    });
 
 
 
@@ -42,6 +53,7 @@ export default function App() {
                     <Route path="/courses" element={<ProtectedRoute isTokenValid={isTokenValid} component={CoursePage} />} />
                     <Route path="/statistic" element={<ProtectedRoute isTokenValid={isTokenValid} component={MyStatisticsPage} />} />
                     <Route path="/forums" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumPage} />} />
+                    <Route path="/admin" element={<ProtectedRoute isTokenValid={isTokenValid} component={ForumPage} />} />
                     <Route path="/register" element={<RegisterPage />} />
                 </Routes>
             </BrowserRouter>
